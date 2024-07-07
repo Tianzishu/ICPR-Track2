@@ -71,7 +71,7 @@ class Res_SimAM_block(nn.Module):
 
         return out
 
-class LightWeightNetwork(nn.Module):
+class res_UNet_resnet_10_2(nn.Module):
     def __init__(self, num_classes=1, input_channels=3, block=Res_SimAM_block, num_blocks=[1, 1, 1, 1], nb_filter=[2, 4, 8, 16, 32]):
         super(LightWeightNetwork, self).__init__()
 
@@ -175,9 +175,9 @@ class res_UNet_resnet_10_4(nn.Module):
         return output
 
 
-class res_UNet_resnet_18_4(nn.Module):
+class LightWeightNetwork(nn.Module):
     def __init__(self, num_classes=1, input_channels=3, block=Res_SimAM_block, num_blocks=[2, 2, 2, 2], nb_filter=[4, 8, 16,32, 64]):
-        super(res_UNet_resnet_18_4, self).__init__()
+        super(LightWeightNetwork, self).__init__()
 
         self.pool = nn.MaxPool2d(2, 2)
         self.up = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
